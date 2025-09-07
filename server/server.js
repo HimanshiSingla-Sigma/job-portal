@@ -4,6 +4,7 @@ import cors from "cors"
 import 'dotenv/config'
 import mongoose from "mongoose";
 import * as Sentry from "@sentry/node";
+import { clerkWebhooks } from './controllers/webhooks.js';
 
 // initialize express
 const app = express();
@@ -20,10 +21,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/job-portal').then(()=>{
 })
 
 // routes
-app.get('/test',(req,res)=>res.send("API Working"));
+app.get('/',(res,req)=> res.send("API working"));
 app.get("/debug-sentry", function mainHandler(req, res) {
     throw new Error("My first Sentry error!");
 });
+app.post('/webhooks',clerkWebhooks);
 
 // port 
 const PORT = process.env.PORT || 5050;
