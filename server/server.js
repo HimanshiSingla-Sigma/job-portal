@@ -21,7 +21,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/job-portal').then(()=>{
 })
 
 // routes
-app.get('/',(res,req)=> res.send("API working"));
+app.get('/',(req,res)=> res.send("API working"));
 app.get("/debug-sentry", function mainHandler(req, res) {
     throw new Error("My first Sentry error!");
 });
