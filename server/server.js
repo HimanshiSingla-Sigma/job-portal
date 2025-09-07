@@ -1,0 +1,37 @@
+import './config/instrument.js'
+import express from "express"
+import cors from "cors"
+import 'dotenv/config'
+import mongoose from "mongoose";
+import * as Sentry from "@sentry/node";
+
+// initialize express
+const app = express();
+
+// middlewares
+app.use(cors());
+app.use(express.json());
+
+// connect to database
+mongoose.connect('mongodb://127.0.0.1:27017/job-portal').then(()=>{
+    console.log("database connected");
+}).catch((err)=>{
+    console.log("connection failed");
+})
+
+// routes
+app.get('/test',(req,res)=>res.send("API Working"));
+app.get("/debug-sentry", function mainHandler(req, res) {
+    throw new Error("My first Sentry error!");
+});
+
+// port 
+const PORT = process.env.PORT || 5050;
+
+Sentry.setupExpressErrorHandler(app);
+
+app.listen(PORT,()=>{
+    console.log(`server is running on port ${PORT}`);
+})
+
+ 
