@@ -5,6 +5,7 @@ import 'dotenv/config'
 import mongoose from "mongoose";
 import * as Sentry from "@sentry/node";
 import { clerkWebhooks } from './controllers/webhooks.js';
+import connectDB from './config/db.js';
 
 // initialize express
 const app = express();
@@ -14,11 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // connect to database
-mongoose.connect('mongodb://127.0.0.1:27017/job-portal').then(()=>{
-    console.log("database connected");
-}).catch((err)=>{
-    console.log("connection failed");
-})
+await connectDB()
 
 // routes
 app.get('/',(req,res)=> res.send("API working"));
