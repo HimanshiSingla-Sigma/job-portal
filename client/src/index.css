@@ -57,3 +57,30 @@
 .job-description strong {
   font-weight: 700;
 }
+
+
+/* Add these styles to your CSS file */
+
+/* Footer Links */
+.footer-link {
+  @apply text-gray-600 hover:text-blue-600 transition-colors duration-300;
+}
+
+/* Social Icons */
+.social-icon {
+  @apply p-2 bg-white rounded-full shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300;
+}
+
+/* Newsletter Form Focus States */
+.newsletter-input:focus {
+  @apply ring-2 ring-blue-500 border-transparent outline-none;
+}
+
+/* Back to Top Button (optional) */
+.back-to-top {
+  @apply fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 opacity-0 invisible transition-all;
+}
+
+.back-to-top.visible {
+  @apply opacity-100 visible;
+}

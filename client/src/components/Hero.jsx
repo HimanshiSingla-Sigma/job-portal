@@ -76,7 +76,7 @@ function Hero() {
     return (
         <div className='container mx-auto mt-10 px-4 md:px-8 xl:px-20'>
             {/* Hero Section */}
-            <div className='bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-16 text-center rounded-3xl'>
+            <div className='bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 text-center rounded-3xl'>
                 <h2 className='text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl'>
                     Find Your Dream Job
                 </h2>

@@ -4,6 +4,8 @@ import Hero from '../components/Hero';
 import JobListing from '../components/JobListing';
 import AppDownload from '../components/AppDownload';
 import Footer from '../components/Footer';
+import HowItWorks from './HowItWorks';
+import CareerCTA from './CareerCTA';
 
 function Home() {
     return ( 
@@ -11,7 +13,9 @@ function Home() {
             <Navbar/>
             <Hero/>
             <JobListing/>
-            <AppDownload/>
+            <HowItWorks/>
+            <CareerCTA/>
+            {/* <AppDownload/> */}
             <Footer/>
         </div>
      );

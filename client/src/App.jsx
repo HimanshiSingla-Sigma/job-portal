@@ -13,6 +13,7 @@ import ViewApplications from "./pages/ViewApplications";
 import "quill/dist/quill.snow.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import About from "./pages/About";
 
 
 const App = () => {

@@ -11,10 +11,11 @@ import connectCloudinary from './config/cloudinary.js';
 import jobRoutes from "./routes/jobRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import {clerkMiddleware} from "@clerk/express"
-// import resumeRoutes from "./routes/resumeRoutes.js";
+
+
+const app = express();
 
 // initialize express
-const app = express();
 
 // middlewares
 app.use(cors());
@@ -34,7 +35,6 @@ app.post('/webhooks',clerkWebhooks);
 app.use('/api/company',companyRoutes);
 app.use('/api/jobs',jobRoutes)
 app.use('/api/users',userRoutes)
-// app.use("/api/resume", resumeRoutes);
 
 // port 
 const PORT = process.env.PORT || 5050;
