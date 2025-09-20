@@ -11,7 +11,7 @@ import connectCloudinary from './config/cloudinary.js';
 import jobRoutes from "./routes/jobRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import {clerkMiddleware} from "@clerk/express"
-
+import bodyParser from "body-parser";
 
 const app = express();
 
@@ -31,7 +31,12 @@ app.get('/',(req,res)=> res.send("API working"));
 app.get("/debug-sentry", function mainHandler(req, res) {
     throw new Error("My first Sentry error!");
 });
-app.post('/webhooks',clerkWebhooks);
+// app.post('/webhooks',clerkWebhooks);
+app.post(
+    '/webhooks',
+    bodyParser.raw({ type: 'application/json' }), // <-- raw body only here
+    clerkWebhooks
+  );
 app.use('/api/company',companyRoutes);
 app.use('/api/jobs',jobRoutes)
 app.use('/api/users',userRoutes)
