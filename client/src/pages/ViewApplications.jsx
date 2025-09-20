@@ -961,7 +961,7 @@ function ViewApplications() {
   const handleContinue = () => {
     if (selectedApplicant) {
       changeJobApplicationStatus(selectedApplicant._id, "Interviewing");
-      window.open("http://localhost:3000", "_blank");
+      window.open("https://ai-recruiter-app-sigma.vercel.app/auth", "_blank");
     }
     setShowModal(false);
   };
